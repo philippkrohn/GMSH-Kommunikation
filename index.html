@@ -1,26 +1,420 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css"><title>GMSH Demo – Home</title></head><body>
-<nav class="nav"><div class="nav-inner container"><div class="brand"><strong>GMSH Demo</strong></div><div class="menu"><a href="index.html" aria-current="page">Home</a><a href="newsletter/index.html">Newsletter</a><a href="intranet/index.html">Intranet</a><a href="case-study/index.html">Fallstudie</a><a href="intro/index.html">Video</a></div></div></nav>
-<main id="content">
-<section class="hero"><div class="hero-inner container">
-  <h1>Interne Kommunikation – klar, nützlich, messbar</h1>
-  <p>Diese interaktive Demo zeigt Ihnen anhand verschiedener Formate, wie interne Kommunikation beim GMSH echten Mehrwert stiften kann. Statt technischer Spielerei werden hier konkrete Beispiele präsentiert: ein Newsletter, der informiert und zur Teilnahme einlädt; ein Intranet, das Wissen bündelt und Zusammenarbeit fördert; eine Video‑Serie, die Menschen vorstellt und Geschichten erzählt.<br><br>Sie sehen hier, wie transparente Kommunikation Brücken baut: Informationen werden zielgruppengerecht aufbereitet, Feedback wird integriert und Mitarbeitende werden ermutigt, sich einzubringen.<br><br>Als Bewerber bringe ich meine Erfahrung in Employer Branding, Content‑Konzeption und Medienproduktion mit ein, um gemeinsam mit Ihnen eine lebendige, empathische Kommunikationskultur zu schaffen.</p>
-  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
-    <a class="btn" href="newsletter/index.html">Zum Newsletter</a>
-    <a class="btn" style="background:#fff;color:var(--accent);border:2px solid var(--accent)" href="intranet/index.html">Zum Intranet</a>
-  </div>
-</div></section>
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bewerbung Interne Kommunikation | Philipp Krohn</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles & Tailwind Config -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
 
-<section class="container" style="padding:40px 0">
-  <div class="grid grid-3">
-    <div class="card"><span class="badge">Newsletter</span><h3>Informationen, die ankommen</h3><p>Kurze Teaser, klare Strukturen, direkte CTAs.</p></div>
-    <div class="card"><span class="badge">Intranet</span><h3>Drehkreuz für Zusammenarbeit</h3><p>Aktuelles, Projekte, Teams – redaktionell geführt.</p></div>
-    <div class="card"><span class="badge">Video-Formate</span><h3>Menschen & Projekte sichtbar</h3><p>Updates und Lernclips schaffen Nähe.</p></div>
-  </div>
-  <div class="hr-callout"><div class="hr-box"><div class="icon">💡</div><div><strong>Hinweis für das Personalteam</strong><br>Die Demo verknüpft Formate mit Nutzen und Messbarkeit – passend zur Stellenbeschreibung.</div></div></div>
-</section>
-</main>
-<footer class="footer"><div class="container">© 2025 · GMSH Demo</div></footer>
-<script src="assets/js/app.js"></script></body></html>
+        /* Accordion Content Styling */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        /* Icon rotation for accordion */
+        .accordion-trigger .accordion-icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .accordion-item.active .accordion-trigger .accordion-icon {
+            transform: rotate(45deg);
+        }
+        
+        /* Video Aspect Ratio Fix */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+
+        /* Reduced motion accessibility */
+        @media (prefers-reduced-motion: no-preference) {
+            .fade-in-section {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            }
+
+            .fade-in-section.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .pulsing-cta {
+                animation: pulse 2s infinite;
+            }
+            @keyframes pulse {
+                0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+                70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+                100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+            }
+
+            .animated-icon {
+                transform: scale(0.5);
+                opacity: 0;
+                transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.3s ease-out;
+            }
+            .is-visible .animated-icon {
+                transform: scale(1);
+                opacity: 1;
+            }
+            .is-visible .delay-1 .animated-icon { transition-delay: 0.1s; }
+            .is-visible .delay-2 .animated-icon { transition-delay: 0.2s; }
+            .is-visible .delay-3 .animated-icon { transition-delay: 0.3s; }
+
+            #scrollTopBtn {
+                transition: opacity 0.3s, transform 0.3s;
+            }
+        }
+
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            opacity: 0;
+            transform: translateY(100px);
+            z-index: 1000;
+        }
+        #scrollTopBtn.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gmsh-navy': '#003f7d',
+                        'gmsh-azure': '#0070b8',
+                        'gmsh-red': '#c5002e',
+                    },
+                    borderRadius: { '2xl': '1rem' },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-slate-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-gmsh-navy">Philipp Krohn</a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#formate" class="text-slate-600 hover:text-gmsh-azure transition duration-300">Formate</a>
+                <a href="#arbeitsweise" class="text-slate-600 hover:text-gmsh-azure transition duration-300">Arbeitsweise</a>
+                <a href="#fallstudie" class="text-slate-600 hover:text-gmsh-azure transition duration-300">Fallstudie</a>
+                <a href="#werkzeuge" class="text-slate-600 hover:text-gmsh-azure transition duration-300">Werkzeuge</a>
+                <a href="#video" class="text-slate-600 hover:text-gmsh-azure transition duration-300">Über mich</a>
+            </div>
+            <a href="mailto:Philipp.krohn@gmail.com?subject=R%C3%BCckmeldung%20zu%20Ihrer%20Bewerbung%20%22Referent%20Interne%20Kommunikation%20(m%2Fw%2Fd)%22" class="hidden md:inline-block bg-gmsh-red text-white font-bold py-2 px-4 rounded-lg hover:opacity-90 transition duration-300">Kontakt</a>
+            <button id="mobile-menu-btn" class="md:hidden text-gmsh-navy focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="#formate" class="block text-slate-600 hover:text-gmsh-azure transition duration-300">Formate</a>
+            <a href="#arbeitsweise" class="block text-slate-600 hover:text-gmsh-azure transition duration-300">Arbeitsweise</a>
+            <a href="#fallstudie" class="block text-slate-600 hover:text-gmsh-azure transition duration-300">Fallstudie</a>
+            <a href="#werkzeuge" class="block text-slate-600 hover:text-gmsh-azure transition duration-300">Werkzeuge</a>
+            <a href="#video" class="block text-slate-600 hover:text-gmsh-azure transition duration-300">Über mich</a>
+            <a href="mailto:Philipp.krohn@gmail.com?subject=R%C3%BCckmeldung%20zu%20Ihrer%20Bewerbung%20%22Referent%20Interne%20Kommunikation%20(m%2Fw%2Fd)%22" class="block bg-gmsh-red text-white text-center font-bold py-2 px-4 rounded-lg mt-2 hover:opacity-90 transition duration-300">Kontakt</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Hero-Bereich -->
+        <section class="relative bg-gradient-to-br from-gmsh-navy to-gmsh-azure text-white text-center py-20 md:py-32 overflow-hidden">
+            <div class="container mx-auto px-6 relative z-10">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Interne Kommunikation sichtbar & wirksam machen</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-slate-200">Hallo, mein Name ist Philipp Krohn. Diese Seite ist eine interaktive Demo, die zeigt, wie ich die Anforderungen an die Stelle als Referent Interne Kommunikation bei der GMSH mit modernen Formaten und strategischer Planung erfülle.</p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="#formate" class="bg-white text-gmsh-azure font-bold py-3 px-8 rounded-full shadow-lg transform transition duration-300 w-full sm:w-auto pulsing-cta">Einblick gewinnen</a>
+                    <a href="mailto:Philipp.krohn@gmail.com?subject=R%C3%BCckmeldung%20zu%20Ihrer%20Bewerbung%20%22Referent%20Interne%20Kommunikation%20(m%2Fw%2Fd)%22" class="border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-gmsh-azure transform transition duration-300 w-full sm:w-auto">Kontakt aufnehmen</a>
+                </div>
+            </div>
+            <div class="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full -translate-x-1/4 -translate-y-1/4"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full translate-x-1/4 translate-y-1/4"></div>
+        </section>
+
+        <!-- 2. Abschnitt „Formate“ -->
+        <section id="formate" class="py-20 md:py-28 bg-slate-50 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gmsh-navy mb-2">Moderne Formate für eine lebendige IK</h2>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">Die richtigen Kanäle und Inhalte, um alle Mitarbeitenden zu erreichen und zu aktivieren.</p>
+                </div>
+                <div class="grid md:grid-cols-1 gap-6 max-w-4xl mx-auto">
+                    
+                    <!-- Accordion Item 1: Newsletter -->
+                    <div class="accordion-item glass-card rounded-2xl shadow-lg">
+                        <button class="accordion-trigger w-full p-8 flex justify-between items-center text-left">
+                            <div class="flex items-center">
+                                <div class="hidden sm:block mr-6 p-4 bg-gmsh-azure/20 rounded-xl animated-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gmsh-azure" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gmsh-navy mb-1">Newsletter</h3>
+                                    <p class="text-slate-600">Mehr als nur eine E-Mail: Ein strategisches Werkzeug zur Steuerung von Aufmerksamkeit.</p>
+                                </div>
+                            </div>
+                            <div class="accordion-icon text-gmsh-azure flex-shrink-0 ml-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg></div>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="px-8 pb-8 border-t border-slate-200/80 grid md:grid-cols-2 gap-8 items-center">
+                                <div class="pt-6">
+                                    <h4 class="font-bold text-gmsh-navy text-lg">Das Warum: Relevanz statt Informationsflut</h4>
+                                    <p class="text-slate-600 mt-2 mb-4">In einer Welt voller Ablenkungen ist die Aufmerksamkeit der Mitarbeitenden ein kostbares Gut. Ein guter Newsletter agiert als intelligenter Filter: Er bündelt das Wichtigste, priorisiert strategische Themen und übersetzt sie in leicht verdauliche, "snackable" Inhalte. So wird aus einer Pflichtlektüre ein geschätzter Service.</p>
+                                    <ul class="space-y-2">
+                                        <li class="flex items-start"><svg class="w-5 h-5 text-gmsh-azure mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong>Mobile-First-Ansatz</strong> für optimale Lesbarkeit auf allen Geräten.</span></li>
+                                        <li class="flex items-start"><svg class="w-5 h-5 text-gmsh-azure mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong>Messbare KPIs</strong> (Öffnungs-, Klickraten) zur kontinuierlichen Verbesserung.</span></li>
+                                        <li class="flex items-start"><svg class="w-5 h-5 text-gmsh-azure mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong>Mix aus Information & Storytelling</strong> zur Steigerung der Identifikation.</span></li>
+                                    </ul>
+                                </div>
+                                <div class="hidden md:block p-4 bg-slate-100 rounded-lg">
+                                    <svg width="100%" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="180" height="25" fill="#003f7d"/><text x="100" y="27" font-size="10" fill="white" text-anchor="middle">Header: GMSH im Fokus</text><rect x="10" y="45" width="180" height="40" fill="#e2e8f0"/><text x="100" y="68" font-size="9" fill="#475569" text-anchor="middle">Top-Thema mit Bild</text><rect x="10" y="95" width="85" height="20" fill="#e2e8f0"/><text x="52.5" y="108" font-size="8" fill="#475569" text-anchor="middle">Kurznachricht 1</text><rect x="105" y="95" width="85" height="20" fill="#e2e8f0"/><text x="147.5" y="108" font-size="8" fill="#475569" text-anchor="middle">Kurznachricht 2</text><rect x="10" y="125" width="180" height="15" fill="#c5002e"/><text x="100" y="136" font-size="8" fill="white" text-anchor="middle">Call-to-Action: Mehr im Intranet</text></svg>
+                                    <p class="text-xs text-center text-slate-500 mt-2">Struktur eines wirksamen Newsletters</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 2: Intranet -->
+                    <div class="accordion-item glass-card rounded-2xl shadow-lg">
+                        <button class="accordion-trigger w-full p-8 flex justify-between items-center text-left">
+                            <div class="flex items-center">
+                                <div class="hidden sm:block mr-6 p-4 bg-gmsh-azure/20 rounded-xl animated-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gmsh-azure" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3m0 18a9 9 0 009-9m-9 9a9 9 0 00-9-9" /></svg></div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gmsh-navy mb-1">Intranet</h3>
+                                    <p class="text-slate-600">Die digitale Heimat: Von der Informationshalde zur Kollaborationsplattform.</p>
+                                </div>
+                            </div>
+                            <div class="accordion-icon text-gmsh-azure flex-shrink-0 ml-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg></div>
+                        </button>
+                        <div class="accordion-content">
+                             <div class="px-8 pb-8 border-t border-slate-200/80 grid md:grid-cols-2 gap-8 items-center">
+                                <div class="pt-6">
+                                    <h4 class="font-bold text-gmsh-navy text-lg">Das Warum: Wissen vernetzen, Kultur stärken</h4>
+                                    <p class="text-slate-600 mt-2 mb-4">Ein modernes Intranet ist das Herzstück der digitalen Zusammenarbeit. Es ist nicht nur der "Single Point of Truth" für verlässliche Informationen, sondern auch ein Ort des Austauschs und der Vernetzung. Indem wir Silos aufbrechen und Partizipation fördern, wird aus dem Intranet ein lebendiger Organismus, der die Unternehmenskultur aktiv formt und das kollektive Wissen für alle nutzbar macht.</p>
+                                    <ul class="space-y-2">
+                                        <li class="flex items-start"><svg class="w-5 h-5 text-gmsh-azure mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong>Redaktionell geführt</strong> für hohe Qualität und Relevanz der Inhalte.</span></li>
+                                        <li class="flex items-start"><svg class="w-5 h-5 text-gmsh-azure mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong>Interaktive Elemente</strong> (Kommentare, Likes, Foren) zur Förderung des Dialogs.</span></li>
+                                        <li class="flex items-start"><svg class="w-5 h-5 text-gmsh-azure mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong>Starke Suchfunktion</strong> als zentrales Wissensmanagement-Tool.</span></li>
+                                    </ul>
+                                </div>
+                                <div class="hidden md:block p-4 bg-slate-100 rounded-lg">
+                                    <svg width="100%" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="75" r="25" fill="#003f7d"/><text x="100" y="78" font-size="10" fill="white" text-anchor="middle">Intranet</text><circle cx="30" cy="40" r="15" fill="#e2e8f0"/><text x="30" y="43" font-size="8" fill="#475569" text-anchor="middle">News</text><line x1="80" y1="65" x2="43" y2="48" stroke="#cbd5e1" stroke-width="2"/><circle cx="170" cy="40" r="15" fill="#e2e8f0"/><text x="170" y="43" font-size="8" fill="#475569" text-anchor="middle">Wissen</text><line x1="120" y1="65" x2="157" y2="48" stroke="#cbd5e1" stroke-width="2"/><circle cx="30" cy="110" r="15" fill="#e2e8f0"/><text x="30" y="113" font-size="8" fill="#475569" text-anchor="middle">Projekte</text><line x1="80" y1="85" x2="43" y2="102" stroke="#cbd5e1" stroke-width="2"/><circle cx="170" cy="110" r="15" fill="#e2e8f0"/><text x="170" y="113" font-size="8" fill="#475569" text-anchor="middle">Dialog</text><line x1="120" y1="85" x2="157" y2="102" stroke="#cbd5e1" stroke-width="2"/></svg>
+                                    <p class="text-xs text-center text-slate-500 mt-2">Das Intranet als zentraler Hub</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 3: Video -->
+                    <div class="accordion-item glass-card rounded-2xl shadow-lg">
+                        <button class="accordion-trigger w-full p-8 flex justify-between items-center text-left">
+                            <div class="flex items-center">
+                                <div class="hidden sm:block mr-6 p-4 bg-gmsh-azure/20 rounded-xl animated-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gmsh-azure" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gmsh-navy mb-1">Video-Formate</h3>
+                                    <p class="text-slate-600">Emotionen wecken, Komplexität reduzieren und Kultur erlebbar machen.</p>
+                                </div>
+                            </div>
+                            <div class="accordion-icon text-gmsh-azure flex-shrink-0 ml-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg></div>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="px-8 pb-8 border-t border-slate-200/80 grid md:grid-cols-2 gap-8 items-center">
+                                <div class="pt-6">
+                                    <h4 class="font-bold text-gmsh-navy text-lg">Das Warum: Kommunikation mit Gesicht</h4>
+                                    <p class="text-slate-600 mt-2 mb-4">Ein Bild sagt mehr als tausend Worte – ein Video erzählt eine ganze Geschichte. In der internen Kommunikation ist Video das mächtigste Werkzeug, um Führungskräfte nahbar zu machen, Veränderungsprozesse emotional zu begleiten und komplexe Sachverhalte einfach zu erklären. Es transportiert nonverbale Signale und schafft eine persönliche Verbindung, die Text allein nicht leisten kann.</p>
+                                    <ul class="space-y-2">
+                                        <li class="flex items-start"><svg class="w-5 h-5 text-gmsh-azure mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong>Authentisches Storytelling</strong> statt Hochglanz-Produktionen.</span></li>
+                                        <li class="flex items-start"><svg class="w-5 h-5 text-gmsh-azure mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong>Wissensvermittlung</strong> durch kurze, prägnante Erklärvideos.</span></li>
+                                        <li class="flex items-start"><svg class="w-5 h-5 text-gmsh-azure mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span><strong>Untertitelung</strong> für Barrierefreiheit und Konsum ohne Ton.</span></li>
+                                    </ul>
+                                </div>
+                                <div class="hidden md:block p-4 space-y-3">
+                                    <div class="flex items-center p-3 bg-slate-100 rounded-lg"><svg class="w-8 h-8 text-gmsh-navy mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2V4a2 2 0 012-2h8a2 2 0 012 2v4z"></path></svg><div><h5 class="font-bold text-sm text-slate-800">Vorstands-Update</h5><p class="text-xs text-slate-500">Persönliche Botschaften, die Vertrauen schaffen.</p></div></div>
+                                    <div class="flex items-center p-3 bg-slate-100 rounded-lg"><svg class="w-8 h-8 text-gmsh-navy mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg><div><h5 class="font-bold text-sm text-slate-800">Erklärvideo / Tutorial</h5><p class="text-xs text-slate-500">Komplexe Themen einfach und visuell vermitteln.</p></div></div>
+                                    <div class="flex items-center p-3 bg-slate-100 rounded-lg"><svg class="w-8 h-8 text-gmsh-navy mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><div><h5 class="font-bold text-sm text-slate-800">Projekt-Doku</h5><p class="text-xs text-slate-500">Erfolge sichtbar machen und Teams wertschätzen.</p></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-16 max-w-4xl mx-auto bg-blue-50 border-l-4 border-gmsh-azure p-6 rounded-r-lg"><p class="font-bold text-gmsh-navy mb-2 flex items-center"><span class="text-2xl mr-3">💡</span> Der strategische Gedanke</p><p class="text-slate-700">Ein moderner Mix aus Push- (Newsletter), Pull- (Intranet) und Dialog-Formaten (Video) stellt sicher, dass strategische Botschaften nicht nur gesendet, sondern auch von verschiedenen Zielgruppen aktiv wahrgenommen werden. So entsteht ein lebendiges Kommunikations-Ökosystem.</p></div>
+            </div>
+        </section>
+
+        <!-- 3. Abschnitt „So arbeite ich“ -->
+        <section id="arbeitsweise" class="py-20 md:py-28 bg-white fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold text-gmsh-navy mb-2">Meine Arbeitsweise: Strategisch und agil</h2><p class="text-lg text-slate-600 max-w-2xl mx-auto">Gute Kommunikation ist kein Zufall. Sie folgt einem klaren Prozess vom Ziel bis zur Wirkung.</p></div>
+                <div class="relative">
+                    <div class="grid md:grid-cols-3 gap-8 relative">
+                        <div class="text-center p-6 delay-1"><div class="relative mb-4 inline-block"><div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center animated-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gmsh-azure" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg></div><span class="absolute -top-2 -right-2 bg-gmsh-navy text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">1</span></div><h3 class="text-xl font-bold text-gmsh-navy mb-2">Analyse & Strategie</h3><p class="text-slate-600">Wer soll was wissen, fühlen oder tun? Am Anfang stehen immer die Zielgruppenanalyse und die Definition klarer Kommunikationsziele.</p></div>
+                        <div class="text-center p-6 delay-2"><div class="relative mb-4 inline-block"><div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center animated-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gmsh-azure" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg></div><span class="absolute -top-2 -right-2 bg-gmsh-navy text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">2</span></div><h3 class="text-xl font-bold text-gmsh-navy mb-2">Umsetzung & Kreation</h3><p class="text-slate-600">Von der Idee zum fertigen Produkt: Ich erstelle Inhalte, die zur Marke passen, die Zielgruppe ansprechen und auf den Punkt kommen.</p></div>
+                        <div class="text-center p-6 delay-3"><div class="relative mb-4 inline-block"><div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center animated-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gmsh-azure" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg></div><span class="absolute -top-2 -right-2 bg-gmsh-navy text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">3</span></div><h3 class="text-xl font-bold text-gmsh-navy mb-2">Messung & Optimierung</h3><p class="text-slate-600">Wirkung ist messbar. Durch KPIs und Feedback-Schleifen lerne ich kontinuierlich dazu und verbessere die Kommunikation fortlaufend.</p></div>
+                    </div>
+                </div>
+                <div class="mt-16 max-w-4xl mx-auto bg-blue-50 border-l-4 border-gmsh-azure p-6 rounded-r-lg"><p class="font-bold text-gmsh-navy mb-2 flex items-center"><span class="text-2xl mr-3">💡</span> Der strategische Gedanke</p><p class="text-slate-700">Wirksame Kommunikation ist mehr als die Summe kreativer Ideen. Ein strukturierter Prozess schafft Transparenz, sichert die Qualität und macht den Beitrag der internen Kommunikation zum Unternehmenserfolg nachvollziehbar und steuerbar.</p></div>
+            </div>
+        </section>
+
+        <!-- 4. Abschnitt „Fallstudie“ -->
+        <section id="fallstudie" class="py-20 md:py-28 bg-slate-50 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold text-gmsh-navy mb-2">Aus der Praxis: Ein Fallbeispiel</h2><p class="text-lg text-slate-600 max-w-2xl mx-auto">Ein Beispiel, das das Potenzial moderner Lernformate bei Veränderungen aufzeigt.</p></div>
+                <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden md:flex">
+                    <div class="md:w-1/3 bg-gmsh-navy p-8 text-white flex flex-col justify-center items-center text-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg><h3 class="text-2xl font-bold">Video-Lernserie</h3><p class="opacity-80">Begleitung einer Software-Einführung</p></div>
+                    <div class="p-8 md:w-2/3"><h4 class="text-xl font-bold text-gmsh-navy mb-4">Die Herausforderung</h4><p class="text-slate-600 mb-6">Eine neue, komplexe Software soll eingeführt werden. Ziel ist es, die Mitarbeitenden nicht nur zu schulen, sondern auch für die Veränderung zu begeistern und die Akzeptanz zu fördern.</p><h4 class="text-xl font-bold text-gmsh-navy mb-4">Potenzial & Mehrwert</h4><ul class="space-y-3 text-slate-700"><li class="flex items-start"><svg class="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span><strong>Höheres Engagement:</strong> Kurze, visuelle Lernvideos werden erfahrungsgemäß deutlich besser angenommen als textlastige Handbücher.</span></li><li class="flex items-start"><svg class="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span><strong>Nachhaltiger Lerneffekt:</strong> Die visuelle Aufbereitung komplexer Schritte führt zu weniger Rückfragen und einer schnelleren, selbstständigen Adaption.</span></li><li class="flex items-start"><svg class="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span><strong>Positive Wahrnehmung:</strong> Eine moderne Lernbegleitung wird als Wertschätzung empfunden und stärkt die positive Einstellung zum Change-Prozess.</span></li></ul></div>
+                </div>
+                <div class="mt-16 max-w-4xl mx-auto bg-blue-50 border-l-4 border-gmsh-azure p-6 rounded-r-lg"><p class="font-bold text-gmsh-navy mb-2 flex items-center"><span class="text-2xl mr-3">💡</span> Der strategische Gedanke</p><p class="text-slate-700">Veränderungsprozesse erfordern mehr als reine Information – sie brauchen Akzeptanz. Praxisnahe Beispiele und visuelles Storytelling helfen dabei, den Nutzen von Veränderungen greifbar zu machen und die Mitarbeitenden aktiv in den Prozess einzubinden.</p></div>
+            </div>
+        </section>
+
+        <!-- 6. Abschnitt „Meine Werkzeuge“ -->
+        <section id="werkzeuge" class="py-20 md:py-28 bg-white fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold text-gmsh-navy mb-2">Meine Kompetenzen</h2><p class="text-lg text-slate-600 max-w-2xl mx-auto">Sicherer Umgang mit den gängigen Werkzeugen für professionelle Unternehmenskommunikation.</p></div>
+                <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="text-slate-600 hover:text-gmsh-navy transition duration-300">
+                        <div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gmsh-azure" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg></div>
+                        <h4 class="font-bold">Kollaboration & Office</h4>
+                    </div>
+                     <div class="text-slate-600 hover:text-gmsh-navy transition duration-300">
+                        <div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gmsh-azure" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3h2m-4 3H9m-4 4h2m-4 4h2m4-8h2m-4 4h2m-4 4h2m2-4h2m-4 4h2" /></svg></div>
+                        <h4 class="font-bold">CMS & Intranet</h4>
+                    </div>
+                     <div class="text-slate-600 hover:text-gmsh-navy transition duration-300">
+                        <div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gmsh-azure" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg></div>
+                        <h4 class="font-bold">Grafik & Layout</h4>
+                    </div>
+                     <div class="text-slate-600 hover:text-gmsh-navy transition duration-300">
+                        <div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gmsh-azure" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" /></svg></div>
+                        <h4 class="font-bold">Videobearbeitung</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Abschnitt „Vorstellungsvideo“ -->
+        <section id="video" class="py-20 md:py-28 bg-slate-50 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-end">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-gmsh-navy mb-4 text-center md:text-left">Ein persönlicher Eindruck</h2>
+                        <p class="text-lg text-slate-600 mb-8 text-center md:text-left">Lernen Sie mich in 90 Sekunden kennen und erfahren Sie, was mich für die interne Kommunikation bei der GMSH motiviert.</p>
+                        <div class="video-wrapper rounded-2xl shadow-2xl overflow-hidden">
+                            <iframe src="https://www.youtube-nocookie.com/embed/2grZt99LYY0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="PK Bild Klein.jpg" alt="Portrait von Philipp Krohn" class="rounded-2xl shadow-xl mx-auto w-full max-w-sm md:max-w-full">
+                    </div>
+                </div>
+                 <div class="mt-16 max-w-5xl mx-auto bg-blue-50 border-l-4 border-gmsh-azure p-6 rounded-r-lg"><p class="font-bold text-gmsh-navy mb-2 flex items-center"><span class="text-2xl mr-3">💡</span> Der strategische Gedanke</p><p class="text-slate-700">In der internen Kommunikation ist der persönliche Draht entscheidend. Authentizität und eine klare, nahbare Ansprache schaffen Vertrauen und Glaubwürdigkeit – die Grundlage dafür, dass Botschaften nicht nur gehört, sondern auch angenommen werden.</p></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gmsh-navy text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p class="font-bold text-lg mb-2">Interesse geweckt?</p>
+            <p class="mb-4">Ich freue mich darauf, Sie in einem persönlichen Gespräch kennenzulernen.</p>
+            <a href="mailto:Philipp.Krohn@gmail.com" class="text-gmsh-azure font-bold hover:underline">Philipp.Krohn@gmail.com</a>
+            <div class="mt-8 border-t border-white/20 pt-6">
+                <p class="text-sm text-slate-400">Dies ist eine interaktive Demo für Bewerbungszwecke bei der GMSH.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll-to-Top Button -->
+    <button id="scrollTopBtn" title="Nach oben scrollen" class="bg-gmsh-azure text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-gmsh-navy transition duration-300"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg></button>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+            }
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); }); });
+
+            // Scroll-triggered fade-in animation
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); } });
+            }, { threshold: 0.1 });
+            sections.forEach(section => { observer.observe(section); });
+
+            // Scroll-to-Top Button Logic
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) { scrollTopBtn.classList.add('visible'); } 
+                else { scrollTopBtn.classList.remove('visible'); }
+            });
+            scrollTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+            // Accordion Logic for Formats
+            const accordions = document.querySelectorAll('.accordion-item');
+            accordions.forEach(item => {
+                const trigger = item.querySelector('.accordion-trigger');
+                const content = item.querySelector('.accordion-content');
+
+                trigger.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+
+                    // Close all other accordions
+                    accordions.forEach(otherItem => {
+                        if (otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.accordion-content').style.maxHeight = null;
+                        }
+                    });
+
+                    // Toggle the clicked accordion
+                    if (!isActive) {
+                        item.classList.add('active');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
