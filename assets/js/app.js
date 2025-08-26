@@ -1,1 +1,0 @@
-console.log('modern site (relative paths) ready');
